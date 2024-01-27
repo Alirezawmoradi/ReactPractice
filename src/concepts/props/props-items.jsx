@@ -1,22 +1,19 @@
-const ListItem = ({List}) => {
+const PropsItems = ({skills}) => {
     return (
         <div>
             <ul>
                 {
-                    List.map((item) => {
+                    skills.map((detail) => {
                         return (
-                            <li key={item.id}>
+                            <li key={detail.id}>
                                 <span>
-                                    <a href={item.url}>{item.title}</a>
+                                    {detail.developer}
                                 </span>
                                 <span>
-                                    {item.author}
+                                    {detail.tech}
                                 </span>
                                 <span>
-                                    {item.num_comments}
-                                </span>
-                                <span>
-                                    {item.points}
+                                    {detail.level}
                                 </span>
                             </li>
                         )
@@ -26,4 +23,4 @@ const ListItem = ({List}) => {
         </div>
     )
 }
-export default ListItem;
+export default PropsItems;

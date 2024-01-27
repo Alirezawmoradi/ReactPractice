@@ -1,6 +1,7 @@
 import Jsx from "./concepts/jsx/jsx.jsx";
 import ReactList from "./concepts/react-list/react-list.jsx";
 import HandlerFunction from "./concepts/handler-function/handler-function.jsx";
+import Props from "./concepts/props/props.jsx";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
             <Jsx/>
             <ReactList/>
             <HandlerFunction/>
+            <Props/>
         </div>
     )
 }
