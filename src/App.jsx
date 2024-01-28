@@ -3,6 +3,7 @@ import ReactList from "./concepts/react-list/react-list.jsx";
 import HandlerFunction from "./concepts/handler-function/handler-function.jsx";
 import Props from "./concepts/props/props.jsx";
 import State from "./concepts/states/state.jsx";
+import CallbackHandler from "./concepts/callback-handler/callback-handler.jsx";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <HandlerFunction/>
             <Props/>
             <State/>
+            <CallbackHandler/>
         </div>
     )
 }
