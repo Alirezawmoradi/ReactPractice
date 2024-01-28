@@ -5,6 +5,7 @@ import Props from "./concepts/props/props.jsx";
 import State from "./concepts/states/state.jsx";
 import CallbackHandler from "./concepts/callback-handler/callback-handler.jsx";
 import LiftingState from "./concepts/lifting-state/lifting-state.jsx";
+import ControlledComponent from "./concepts/controlled-component/controlled-component.jsx";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <State/>
             <CallbackHandler/>
             <LiftingState/>
+            <ControlledComponent/>
         </div>
     )
 }
