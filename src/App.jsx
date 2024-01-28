@@ -6,7 +6,7 @@ import State from "./concepts/states/state.jsx";
 import CallbackHandler from "./concepts/callback-handler/callback-handler.jsx";
 import LiftingState from "./concepts/lifting-state/lifting-state.jsx";
 import ControlledComponent from "./concepts/controlled-component/controlled-component.jsx";
-import PropsHandling from "./concepts/props-handling/props-handling.jsx";
+import PropsHandling from "./concepts/props-handling/props-destructuring/props-handling.jsx";
 
 function App() {
 
