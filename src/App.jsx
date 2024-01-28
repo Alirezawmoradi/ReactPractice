@@ -4,6 +4,7 @@ import HandlerFunction from "./concepts/handler-function/handler-function.jsx";
 import Props from "./concepts/props/props.jsx";
 import State from "./concepts/states/state.jsx";
 import CallbackHandler from "./concepts/callback-handler/callback-handler.jsx";
+import LiftingState from "./concepts/lifting-state/lifting-state.jsx";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Props/>
             <State/>
             <CallbackHandler/>
+            <LiftingState/>
         </div>
     )
 }
