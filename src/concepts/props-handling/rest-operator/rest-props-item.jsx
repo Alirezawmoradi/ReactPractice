@@ -1,4 +1,4 @@
-const SpreadPropsItem = ({id, url, title, author, num_comments, points}) => {
+const RestPropsItem = ({ url, title, author, num_comments, points}) => {
     return (
         <li>
            <span>
@@ -18,4 +18,4 @@ const SpreadPropsItem = ({id, url, title, author, num_comments, points}) => {
         </li>
     )
 }
-export default SpreadPropsItem;
+export default RestPropsItem;
