@@ -7,6 +7,7 @@ import CallbackHandler from "./concepts/callback-handler/callback-handler.jsx";
 import LiftingState from "./concepts/lifting-state/lifting-state.jsx";
 import ControlledComponent from "./concepts/controlled-component/controlled-component.jsx";
 import PropsHandling from "./concepts/props-handling/props-destructuring/props-handling.jsx";
+import SideEffects from "./concepts/side-effects/side-effects.jsx";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <LiftingState/>
             <ControlledComponent/>
             <PropsHandling/>
+            <SideEffects/>
         </div>
     )
 }
