@@ -10,6 +10,7 @@ import PropsHandling from "./concepts/props-handling/props-destructuring/props-h
 import SideEffects from "./concepts/side-effects/side-effects.jsx";
 import ColorExample from "./concepts/custom-hook/custom-hook.jsx";
 import CustomHook from "./concepts/custom-hook/custom-hook.jsx";
+import InlineHandler from "./concepts/inline-handler/inline-handler.jsx";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <PropsHandling/>
             <SideEffects/>
             <CustomHook/>
+            <InlineHandler/>
         </div>
     )
 }
