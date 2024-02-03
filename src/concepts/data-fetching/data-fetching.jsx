@@ -3,6 +3,9 @@ import Search from "../lifting-state/search.jsx";
 import InlineHandlerList from "../inline-handler/inline-handler-list.jsx";
 
 const DataFetching = () => {
+
+    if (!searchTerm) return;
+
     const storiesReducer = (state, action) => {
         switch (action.type) {
             case 'STORIES_FETCH_INIT':
@@ -44,7 +47,6 @@ const DataFetching = () => {
     const handleLifting = (event) => {
         setSearchTerm(event.target.value);
     }
-    const searchedStories = stories.data.filter((story) => story.title.toLowerCase().includes(searchTerm.toLowerCase()));
     useEffect(() => {
         dispatchStories({type: 'STORIES_FETCH_INIT'});
 
@@ -54,8 +56,13 @@ const DataFetching = () => {
             dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: stories})
         }).catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}));
 
+        //Fetching API FOR LIST
+        fetch(`${API_CALL}?query=${searchTerm}`).then(response => response.json()).then((stories) => {
+            dispatchStories({type: 'STORIES_FETCH_SUCCESS', payload: stories})
+        }).catch(() => dispatchStories({type: 'STORIES_FETCH_FAILURE'}));
 
-    }, []);
+
+    }, [searchTerm]);
     return (
         <div>
             <Search onSearch={handleLifting}/>
@@ -66,7 +73,7 @@ const DataFetching = () => {
                 stories.isLoading ?
                     <p>Loading...</p>
                     :
-                    <InlineHandlerList list={searchedStories} onRemoveItem={handleRemoveStory}/>
+                    <InlineHandlerList list={stories.data} onRemoveItem={handleRemoveStory}/>
             }
         </div>
     );
