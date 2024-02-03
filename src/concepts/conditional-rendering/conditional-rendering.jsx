@@ -1,9 +1,18 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Search from "../lifting-state/search.jsx";
-import InlineHandlerList from "./inline-handler-list.jsx";
+import InlineHandlerList from "../inline-handler/inline-handler-list.jsx";
 
-const InlineHandler = () => {
-    const initialStories = [
+const ConditionalRendering = () => {
+    const getAsyncStories = () => new Promise(resolve => {
+        setTimeout(() => {
+            resolve({
+                data: {
+                    stories: initialPromiseStories
+                }
+            })
+        }, 2000)
+    })
+    const initialPromiseStories = [
         {
             id: 0,
             title: 'React',
@@ -31,7 +40,9 @@ const InlineHandler = () => {
 
     ]
     const [searchTerm, setSearchTerm] = useState('');
-    const [stories, setStories] = useState(initialStories);
+    const [stories, setStories] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
     const handleRemoveStory = (id) => {
         const newStory = stories.filter(story => story.id !== id);
         setStories(newStory);
@@ -40,11 +51,25 @@ const InlineHandler = () => {
         setSearchTerm(event.target.value);
     }
     const searchedStories = stories.filter((story) => story.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    useEffect(() => {
+        setIsLoading(true);
+        getAsyncStories().then(result => {
+            setStories(result.data.stories);
+            setIsLoading(false);
+        }).catch(() => setIsError(true));
+    }, []);
     return (
         <div>
             <Search onSearch={handleLifting}/>
-            <InlineHandlerList list={searchedStories} onRemoveItem={handleRemoveStory}/>
+            {
+                isError && <p>Something went wrong</p>
+            }
+            {
+                isLoading ?
+                    <p>Loading...</p>
+                    :
+                    <InlineHandlerList list={searchedStories} onRemoveItem={handleRemoveStory}/>
+            }
         </div>
-    )
+    );
 }
-export default InlineHandler;
