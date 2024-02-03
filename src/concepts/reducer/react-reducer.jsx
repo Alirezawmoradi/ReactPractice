@@ -50,19 +50,31 @@ const ReactReducer = () => {
                 return state;
         }
     }
+    const searchTermReducer = (state, action) => {
+        switch (action.type) {
+            case 'SET_SEARCHTERM':
+                return action.payload;
+            case 'FILTER_SEARCHTERM':
+                return action.payload;
+        }
+    }
     // const [stories, setStories] = useState([]);
     const [stories, dispatchStories] = useReducer(storiesReducer, []);
+    const [searchTerm, dispatchSearchTerm] = useReducer(searchTermReducer, '');
 
-    const [searchTerm, setSearchTerm] = useState('');
+    // const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const handleRemoveStory = (id) => {
         dispatchStories({type: 'REMOVE_STORIES', payload: id});
     }
     const handleLifting = (event) => {
-        setSearchTerm(event.target.value);
+        dispatchSearchTerm({type: 'SET_SEARCHTERM', payload: event.target.value})
     }
-    const searchedStories = stories.filter((story) => story.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    const searchedStories = stories.filter((story) => dispatchStories({
+        type: 'FILTER_SEARCHTERM',
+        payload: story.title.toLowerCase().includes(searchTerm.toLowerCase())
+    }));
     useEffect(() => {
         setIsLoading(true);
         getAsyncStories().then(result => {
