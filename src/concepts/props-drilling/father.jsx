@@ -1,6 +1,6 @@
 import Son from "./son.jsx";
 
-const Father = ({data}) => {
-    return <Son data={data}/>
+const Father = () => {
+    return <Son/>
 }
 export default Father;

@@ -1,4 +1,4 @@
-const Son = ({data})=>{
-    return <GrandSon data={data}/>
+const Son = ()=>{
+    return <GrandSon/>
 }
 export default Son;

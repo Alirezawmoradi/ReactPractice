@@ -1,10 +1,13 @@
 import GrandFather from "./grand-father.jsx";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AppContext, AppProvider} from "../app-context/app-context.jsx";
 
 const PropsDrilling = () => {
-    const [state, setState] = useState('Sample state')
-    return (<>
-            <GrandFather data={state}/>
+    const {setState} = useContext(AppContext);
+    setState('Sample')
+    return (
+        <>
+            <GrandFather/>
         </>
     )
 }

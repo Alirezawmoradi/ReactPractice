@@ -1,6 +1,6 @@
 import Father from "./father.jsx";
 
-const GrandFather = (data) => {
-    return <Father data={data}/>
+const GrandFather = () => {
+    return <Father/>
 }
 export default GrandFather;
