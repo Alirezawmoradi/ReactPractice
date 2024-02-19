@@ -5,9 +5,9 @@ const AppContext = createContext();
 const AppProvider = ({children}) => {
     const [state, setState] = useState()
     return (
-        <AppProvider value={{state, setState}}>
+        <AppContext value={{state, setState}}>
             {children}
-        </AppProvider>
+        </AppContext>
     )
 }
 
